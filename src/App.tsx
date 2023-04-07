@@ -11,14 +11,52 @@ function App() {
 
   const addItem = (itemType:'experience' | 'education') => {
     if(itemType === 'experience'){
-      updateResume(() => {resume.experienceData.push(
-        
+      updateResume((item) => {item.experienceData.push(
+        {
+          id:uuidv4(),
+          company:'',
+          position:'',
+          location:'',
+          startDate:'',
+          endDate:'',
+          description:''
+      }
       )})
+    }
+    if(itemType === 'education'){
+      updateResume((item) => {item.educationData.push(
+        {
+          id:uuidv4(),
+          program:'',
+          university:'',
+          startDate:'',
+          endDate:'',
+          description:''
+        }
+      )
+      })
     }
   }
 
-  const accessEvent = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, formObject:string) => {
-    formObject = e.target.value
+  const deleteItem = (id:string,itemType:'experience' | 'education') => {
+    if(itemType === 'experience'){
+      updateResume(item => {
+        const index = item.experienceData.findIndex(t => 
+          t.id === id)
+          item.experienceData.splice(index,1)
+      })
+    }
+    if(itemType === 'education'){
+      updateResume(item => {
+        const index = item.educationData.findIndex(t => 
+          t.id === id)
+          item.educationData.splice(index,1)
+      })
+    }
+  }
+
+  const changeItem = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, formObject:string) => {
+
   }
 
   return (
