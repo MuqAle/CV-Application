@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import emptyResume from './components/form/empty_resume'
+import HeaderItem from './components/form/header'
+import FormList from './components/form/array_form'
 import { ChangeEvent } from "react"
 import { v4 as uuidv4 } from 'uuid'
 import { useImmer } from 'use-immer'
@@ -55,12 +57,35 @@ function App() {
     }
   }
 
-  const changeItem = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, formObject:string) => {
-
+  const changeArrayItem = (e:ChangeEvent<HTMLInputElement | HTMLTextAreaElement>, id:string,itemType:'experience' | 'education') => {
+    updateResume(item => {
+      if(itemType === 'experience'){
+        const experience = item.experienceData.find(t => t.id === id)
+        type ObjectKey = keyof typeof item.experienceData[0]
+        const name = e.target.name as ObjectKey 
+        experience![name] = e.target.value
+      }
+      if(itemType === 'education'){
+        const education = item.educationData.find(t => t.id === id)
+        type ObjectKey = keyof typeof item.educationData[0]
+        const name = e.target.name as ObjectKey 
+        education![name] = e.target.value
+      }
+    })
   }
+  
+  const changePersonal = (e:ChangeEvent<HTMLInputElement>) => {
+    updateResume(item => {
+      const name = e.target.name as keyof typeof item.personalData
+      item.personalData[name] = e.target.value
+    })
+  }
+
 
   return (
     <div className="App">
+      <FormList itemType ='education' resume={resume} deleteItem={deleteItem} addItem={addItem} changeItem={changeArrayItem} />
+
     </div>
   )
 }
