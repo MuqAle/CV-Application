@@ -6,7 +6,7 @@ interface HeaderViewProps{
     number:string,
 }
 
-const headerView = ({firstName,lastName,location,email,number}:HeaderViewProps) => {
+const HeaderView = ({firstName,lastName,location,email,number}:HeaderViewProps) => {
     return(
         <div>
             <h1>{firstName} {lastName}</h1>
@@ -15,4 +15,4 @@ const headerView = ({firstName,lastName,location,email,number}:HeaderViewProps) 
     )
 }
 
-export default headerView
+export default HeaderView

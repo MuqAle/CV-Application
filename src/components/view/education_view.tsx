@@ -7,16 +7,16 @@ interface EducationViewProp{
     description:string
 }
 
-const educationView = ({program,university,startDate,endDate,description}:EducationViewProp) => {
+const EducationView = ({program,university,startDate,endDate,description}:EducationViewProp) => {
     return (
-        <div className="education_view">
+        <li className="education_view">
             <div className="education_header">
                 <p>{program} | {university}</p>
                 <p><b>{startDate} - {endDate}</b></p>
             </div>
             <p>{description}</p>
-        </div>
+        </li>
     )
 }
 
-export default educationView
+export default EducationView

@@ -7,9 +7,9 @@ interface ExperienceViewProps{
     description:string
 }
 
-const experienceView = ({company,position,location,startDate,endDate,description}:ExperienceViewProps) => {
+const ExperienceView = ({company,position,location,startDate,endDate,description}:ExperienceViewProps) => {
     return(       
-        <div>
+        <li className="experience_view">
             <div className="experience_heading">
                 <p><b>{position}</b></p>
                 <p><b>{startDate} - {endDate}</b></p>
@@ -19,8 +19,8 @@ const experienceView = ({company,position,location,startDate,endDate,description
                 <p><i>{location}</i></p>
             </div>
             <p>{description}</p>
-        </div>
+        </li>
     )
 }
 
-export default experienceView
+export default ExperienceView
