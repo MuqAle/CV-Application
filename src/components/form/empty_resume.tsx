@@ -8,7 +8,7 @@ const emptyResume = {
         email:'',
         location:''
     },
-    experienceData:[{
+    educationData:[{
         id:uuidv4(),
         program:'',
         university:'',
@@ -16,7 +16,7 @@ const emptyResume = {
         endDate:'',
         description:''
     }],
-    educationData:[{
+    experienceData:[{
         id:uuidv4(),
         company:'',
         position:'',
