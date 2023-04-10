@@ -17,6 +17,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "src/components/form/array_form.tsx"],
+  "include": ["src", "src/components/form/form.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
