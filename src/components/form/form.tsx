@@ -15,25 +15,27 @@ interface FormProps{
 
 const Form = ({resume,deleteItem,addItem,changeItem,addInput}:FormProps) => {
         return(
-            <div>
+            <div id="input_form">
                 <HeaderItem addInput={addInput}/>
                 <ul id="education_data">
+                    <h2>Education</h2>
                     {resume.educationData.map(item => (
                         <EducationItem key={item.id} 
                             deleteItem ={() => deleteItem(item.id, 'education')} 
                             changeItem={(e) => changeItem(e,item.id,'education')}/>
                         ))
                     }
-                    <button onClick={() => addItem('education')}>Add</button>
+                    <button className="education_add" onClick={() => addItem('education')}>Add</button>
                 </ul>
                 <ul id="experience_data">
+                    <h2>Experience</h2>
                     {resume.experienceData.map(item => (
                         <ExperienceItem key={item.id} 
                             deleteItem={()=> deleteItem(item.id,'experience')}
                             changeItem={(e) => changeItem(e,item.id,'experience')}/>
                         ))
                     }
-                    <button onClick={() => addItem('experience')}>Add</button>
+                    <button className="experience_add" onClick={() => addItem('experience')}>Add</button>
                 </ul> 
             </div>
         )
