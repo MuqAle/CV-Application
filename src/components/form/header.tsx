@@ -5,17 +5,18 @@ interface HeaderProp{
     addInput: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
-const headerItem = ({addInput}:HeaderProp) => {
+const HeaderItem = ({addInput}:HeaderProp) => {
     return (
         <div className= 'header'>
-            <Input label='First Name' onChange={addInput}></Input>
-            <Input label ='Last Name' onChange={addInput}></Input>
-            <Input label='Phone Number' onChange={addInput}></Input>
-            <Input label='Email' onChange={addInput}></Input>
-            <Input label='Location' onChange={addInput}></Input>
+            <h2>Personal Details</h2>
+            <Input name="firstName" label='First Name' onChange={addInput}></Input>
+            <Input name="lastName" label ='Last Name' onChange={addInput}></Input>
+            <Input name="location" label='Location' onChange={addInput}></Input>
+            <Input name="email" label='Email' onChange={addInput}></Input>
+            <Input name="phoneNumber" label='Phone Number' onChange={addInput}></Input>
         </div>
     )
 }
 
 
-export default headerItem
+export default HeaderItem
