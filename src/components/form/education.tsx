@@ -2,26 +2,24 @@ import { ChangeEvent } from "react"
 import Input from "./input"
 
 interface EducationProp{
-    addInput: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
-    addItem: () => void
-    deleteItem: () => void
+    changeItem: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void,
+    deleteItem: () => void,
 }
 
-const educationItem = ({addInput,addItem,deleteItem}:EducationProp) => {
+const EducationItem = ({changeItem,deleteItem}:EducationProp) => {
     return (
-        <div className= 'education'>
-            <Input label='Program/Course' onChange={addInput}></Input>
-            <Input label ='University' onChange={addInput}></Input>
-            <Input label='Start Date' onChange={addInput}></Input>
-            <Input label='End Date' onChange={addInput}></Input>
-            <textarea  placeholder='Description' onChange={addInput}></textarea>
+        <li className= 'education'>
+            <Input name="program" label='Program/Course' onChange={changeItem}></Input>
+            <Input name='university' label ='University' onChange={changeItem}></Input>
+            <Input name='startDate' label='Start Date' onChange={changeItem}></Input>
+            <Input name='endDate' label='End Date' onChange={changeItem}></Input>
+            <textarea name='description' placeholder='Description' onChange={changeItem}></textarea>
             <div className="buttons">
-                <button onClick={addItem}>Add</button>
-                <button onClick={deleteItem}>Delete</button>
+                <button className='education_delete' onClick={deleteItem}>Delete</button>
             </div>
-        </div>
+        </li>
     )
 }
 
 
-export default educationItem
+export default EducationItem

@@ -3,25 +3,24 @@ import Input from "./input";
 
 
 interface ExperienceProp{
-    addInput: (e: ChangeEvent<HTMLInputElement| HTMLTextAreaElement>) => void,
-    addItem: () => void
+    changeItem: (e: ChangeEvent<HTMLInputElement| HTMLTextAreaElement>) => void,
     deleteItem: () => void
 }
-const experienceItem = ({addInput,addItem,deleteItem}:ExperienceProp) => {
+
+const ExperienceItem = ({changeItem,deleteItem}:ExperienceProp) => {
     return(
-        <div className="experience">
-            <Input label='Company' onChange={addInput}></Input>
-            <Input label='Position' onChange={addInput}></Input>
-            <Input label='Location' onChange={addInput}></Input>
-            <Input label='Start Date' onChange={addInput}></Input>
-            <Input label='End Date' onChange={addInput}></Input>
-            <textarea placeholder= 'Description' onChange={addInput}></textarea>
+        <li className="experience">
+            <Input  name='position' label='Position' onChange={changeItem}></Input>
+            <Input  name='company' label='Company' onChange={changeItem}></Input>
+            <Input  name='location' label='Location' onChange={changeItem}></Input>
+            <Input  name='startDate' label='Start Date' onChange={changeItem}></Input>
+            <Input  name='endDate' label='End Date' onChange={changeItem}></Input>
+            <textarea name='description' placeholder= 'Description' onChange={changeItem}></textarea>
             <div className="buttons">
-                <button onClick={addItem}>Add</button>
-                <button onClick={deleteItem}>Delete</button>
+                <button className="experience_delete" onClick={deleteItem}>Delete</button>
             </div>
-        </div>
+        </li>
     )
 }
 
-export default experienceItem
+export default ExperienceItem

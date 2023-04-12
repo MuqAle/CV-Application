@@ -8,7 +8,7 @@ interface HeaderViewProps{
 
 const HeaderView = ({firstName,lastName,location,email,number}:HeaderViewProps) => {
     return(
-        <div>
+        <div className="header_view">
             <h1>{firstName} {lastName}</h1>
             <p>{location} | {email} | {number}</p>
         </div>
