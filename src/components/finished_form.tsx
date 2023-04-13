@@ -81,10 +81,14 @@ const FinishedForm = () => {
     }
 
     return(
-        <div id="form">
+        <main id="form">
+          <div className="resume_form">
           <Form resume={resume} deleteItem={deleteItem} addItem={addItem} changeItem={changeArrayItem} addInput={changePersonal}/>
+          </div>
+          <div className="resume_view">
           <PreviewForm resume={resume}/>
-        </div>
+          </div>
+        </main>
     )
 }
 

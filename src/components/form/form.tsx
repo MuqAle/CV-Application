@@ -19,23 +19,33 @@ const Form = ({resume,deleteItem,addItem,changeItem,addInput}:FormProps) => {
                 <HeaderItem addInput={addInput}/>
                 <ul id="education_data">
                     <h2>Education</h2>
-                    {resume.educationData.map(item => (
-                        <EducationItem key={item.id} 
+                    {
+                    resume.educationData.length === 0 ? (
+                        <button className="education_add" onClick={() => addItem('education')}>Add</button>
+                    ):
+                        (resume.educationData.map(item => (
+                            <EducationItem key={item.id} 
                             deleteItem ={() => deleteItem(item.id, 'education')} 
-                            changeItem={(e) => changeItem(e,item.id,'education')}/>
-                        ))
+                            changeItem={(e) => changeItem(e,item.id,'education')}
+                            addItem={() => addItem('education')}/>
+                            )))
                     }
-                    <button className="education_add" onClick={() => addItem('education')}>Add</button>
+                    
                 </ul>
                 <ul id="experience_data">
                     <h2>Experience</h2>
-                    {resume.experienceData.map(item => (
-                        <ExperienceItem key={item.id} 
-                            deleteItem={()=> deleteItem(item.id,'experience')}
-                            changeItem={(e) => changeItem(e,item.id,'experience')}/>
-                        ))
+                    {
+                    resume.experienceData.length === 0 ? (
+                        <button className="experience_add" onClick={() => {addItem('experience')}}>Add</button>
+                    ):
+                        (resume.experienceData.map(item => (
+                            <ExperienceItem key={item.id} 
+                                deleteItem={()=> deleteItem(item.id,'experience')}
+                                changeItem={(e) => changeItem(e,item.id,'experience')}
+                                addItem={() => addItem('experience')}/>
+                            )))
                     }
-                    <button className="experience_add" onClick={() => addItem('experience')}>Add</button>
+
                 </ul> 
             </div>
         )
