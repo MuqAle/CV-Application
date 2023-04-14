@@ -15,7 +15,7 @@ const PreviewForm = ({resume}:Preview) => {
                 <h2>Education</h2>
                 
                 {resume.educationData.map(item => (
-                    <EducationView key={item.id} program={item.program} university={item.university} startDate={item.startDate} endDate={item.endDate} description={item.description}/>
+                    <EducationView key={item.id} program={item.program} university={item.university} city={item.city} startDate={item.startDate} endDate={item.endDate} description={item.description}/>
                 ))}
             </ul>
             <ul id="experience_data_view">

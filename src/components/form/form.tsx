@@ -16,7 +16,7 @@ interface FormProps{
 const Form = ({resume,deleteItem,addItem,changeItem,addInput}:FormProps) => {
         return(
             <div id="input_form">
-                <HeaderItem addInput={addInput}/>
+                <HeaderItem personalInfo={resume.personalData} addInput={addInput}/>
                 <ul id="education_data">
                     <h2>Education</h2>
                     {
@@ -24,7 +24,7 @@ const Form = ({resume,deleteItem,addItem,changeItem,addInput}:FormProps) => {
                         <button className="education_add" onClick={() => addItem('education')}>Add</button>
                     ):
                         (resume.educationData.map(item => (
-                            <EducationItem key={item.id} 
+                            <EducationItem educationValue={item} key={item.id} 
                             deleteItem ={() => deleteItem(item.id, 'education')} 
                             changeItem={(e) => changeItem(e,item.id,'education')}
                             addItem={() => addItem('education')}/>
@@ -39,7 +39,7 @@ const Form = ({resume,deleteItem,addItem,changeItem,addInput}:FormProps) => {
                         <button className="experience_add" onClick={() => {addItem('experience')}}>Add</button>
                     ):
                         (resume.experienceData.map(item => (
-                            <ExperienceItem key={item.id} 
+                            <ExperienceItem experienceValue={item} key={item.id} 
                                 deleteItem={()=> deleteItem(item.id,'experience')}
                                 changeItem={(e) => changeItem(e,item.id,'experience')}
                                 addItem={() => addItem('experience')}/>

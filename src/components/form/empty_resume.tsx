@@ -12,6 +12,7 @@ const emptyResume = {
         id:uuidv4(),
         program:'',
         university:'',
+        city:'',
         startDate:'',
         endDate:'',
         description:''
