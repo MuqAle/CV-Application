@@ -1,5 +1,5 @@
-# Project Title
-CV to PDF Maker
+# CV to PDF Maker
+
 
 ## Live Link
 https://muqale.github.io/CV-Application/
@@ -26,6 +26,6 @@ To Start Server:
 npm start
 
 ## Reflection
-This was my first time using React so there was a big learning curve on my end. Overall I feel I was able to become comfortable using React and understand breakng up components. Things I learned would be understanding state and how to mutate it along with ternary operator.
+This was my first time using React and TypeScript so there was a big learning curve on my end. Overall I feel I was able to become comfortable using React and understand breakng up components. I still felt like I dont fully understand TypeScript but I have a grasp of the basics and will continue on using it. Things I learned would be understanding state and how to mutate it along with ternary operator. I also used immer which helped reducing my code when mutating state. I also learned about interface and how to determine types for certain React components. Hardest part of this project would have to be making sure the PDF file is formated correctly. I mostly used "pt" metric to mimic a document from word of google docs.
 
 
